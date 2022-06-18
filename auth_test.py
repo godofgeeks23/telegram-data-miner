@@ -2,7 +2,11 @@ import configparser
 import json
 from telethon import TelegramClient
 from telethon.errors import SessionPasswordNeededError
-
+from telethon.tl.functions.channels import GetParticipantsRequest
+from telethon.tl.types import ChannelParticipantsSearch
+from telethon.tl.types import (
+PeerChannel
+)
 
 # Reading Configs
 config = configparser.ConfigParser()
@@ -11,11 +15,10 @@ config.read("config.ini")
 # Setting configuration values
 api_id = config['Telegram']['api_id']
 api_hash = config['Telegram']['api_hash']
-
 api_hash = str(api_hash)
-
 phone = config['Telegram']['phone']
 username = config['Telegram']['username']
+passwd = config['Telegram']['password']
 
 # Create the client and connect
 client = TelegramClient(username, api_id, api_hash)
@@ -27,7 +30,7 @@ if not client.is_user_authorized():
     try:
         client.sign_in(phone, input('Enter the code: '))
     except SessionPasswordNeededError:
-        client.sign_in(password=input('Password: '))
+        client.sign_in(password=passwd)
 
 # getting channel member info
 user_input_channel = input("enter entity(telegram URL or entity id):")
