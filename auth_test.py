@@ -32,7 +32,7 @@ if not client.is_user_authorized():
     except SessionPasswordNeededError:
         client.sign_in(password=passwd)
 
-# getting channel member info
+# getting channel members info
 user_input_channel = input("enter entity(telegram URL or entity id):")
 
 if user_input_channel.isdigit():
