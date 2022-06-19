@@ -45,12 +45,12 @@ offset = 0
 limit = 100
 all_participants = []
 
-while True:
-    participants = client(GetParticipantsRequest(
-        my_channel, ChannelParticipantsSearch(''), offset, limit,
-        hash=0
-    ))
-print(participants)
+# while True:
+participants = client(GetParticipantsRequest(
+    my_channel, ChannelParticipantsSearch(''), offset, limit,
+    hash=0
+))
+print(dir(participants))
 #     if not participants.users:
 #         break
 #     all_participants.extend(participants.users)
