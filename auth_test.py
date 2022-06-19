@@ -50,16 +50,17 @@ while True:
         my_channel, ChannelParticipantsSearch(''), offset, limit,
         hash=0
     ))
-    if not participants.users:
-        break
-    all_participants.extend(participants.users)
-    offset += len(participants.users)
+print(participants)
+#     if not participants.users:
+#         break
+#     all_participants.extend(participants.users)
+#     offset += len(participants.users)
 
-all_user_details = []
-for participant in all_participants:
-    all_user_details.append(
-        {"id": participant.id, "first_name": participant.first_name, "last_name": participant.last_name,
-         "user": participant.username, "phone": participant.phone, "is_bot": participant.bot})
+# all_user_details = []
+# for participant in all_participants:
+#     all_user_details.append(
+#         {"id": participant.id, "first_name": participant.first_name, "last_name": participant.last_name,
+#          "user": participant.username, "phone": participant.phone, "is_bot": participant.bot})
 
-with open('user_data.json', 'w') as outfile:
-    json.dump(all_user_details, outfile)
+# with open('user_data.json', 'w') as outfile:
+#     json.dump(all_user_details, outfile)
