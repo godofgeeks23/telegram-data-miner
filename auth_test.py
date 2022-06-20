@@ -109,6 +109,6 @@ while True:
     if total_count_limit != 0 and total_messages >= total_count_limit:
         break
 # with open('message_data.json', 'w') as outfile:
-#     json.dump(all_messages, outfile)
-print(all_messages)
+    # json.dump(all_messages, outfile)
+# print(all_messages)
 # ---------------------------------------------------------------------------------------------------------
