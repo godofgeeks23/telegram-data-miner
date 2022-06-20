@@ -68,9 +68,9 @@ if not client.is_user_authorized():
 #     all_user_details.append(
 #         {"id": participant.id, "first_name": participant.first_name, "last_name": participant.last_name,
 #          "user": participant.username, "phone": participant.phone, "is_bot": participant.bot})
-# # with open('user_data.json', 'w') as outfile:
-# #     json.dump(all_user_details, outfile)
-# print(all_user_details)
+# with open('user_data.json', 'w') as outfile:
+#     json.dump(all_user_details, outfile)
+# # print(all_user_details)
 # ---------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------
@@ -110,5 +110,5 @@ while True:
         break
 # with open('message_data.json', 'w') as outfile:
     # json.dump(all_messages, outfile)
-# print(all_messages)
+print(all_messages)
 # ---------------------------------------------------------------------------------------------------------
