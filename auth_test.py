@@ -15,12 +15,14 @@ PeerChannel
 
 # ---------------------------------------------------------------------------------------------------------
 # Reading Configs
+
 config = configparser.ConfigParser()
 config.read("config.ini")
 # ---------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------
 # Setting configuration values
+
 api_id = config['Telegram']['api_id']
 api_hash = config['Telegram']['api_hash']
 api_hash = str(api_hash)
@@ -31,6 +33,7 @@ passwd = config['Telegram']['password']
 
 # ---------------------------------------------------------------------------------------------------------
 # Create the client and connect
+
 client = TelegramClient(username, api_id, api_hash)
 client.start()
 print("Client Created")
@@ -45,6 +48,7 @@ if not client.is_user_authorized():
 
 # ---------------------------------------------------------------------------------------------------------
 # # getting channel members info
+
 # user_input_channel = input("enter entity(telegram URL or entity id):")
 # if user_input_channel.isdigit():
 #     entity = PeerChannel(int(user_input_channel))
@@ -75,6 +79,7 @@ if not client.is_user_authorized():
 
 # ---------------------------------------------------------------------------------------------------------
 # Getting channel messages
+
 user_input_channel = input("enter entity(telegram URL or entity id):")
 if user_input_channel.isdigit():
     entity = PeerChannel(int(user_input_channel))
