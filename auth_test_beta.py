@@ -123,12 +123,22 @@ if not client.is_user_authorized():
 # ---------------------------------------------------------------------------------------------------------
 # Searching channels
 def search_channels():
+    results = []
     search_keywords = ["escort services", "darkweb", "dark web", "onion", "onion sites", "dark web links", "malware", "ransomware", "carding", "criminal", "deep web", "deepweb", "onion links"]
     for search in search_keywords:
         result = client(functions.contacts.SearchRequest(
             q=search,
             limit=100
         ))
-        print(result.stringify())
+        # print(result.stringify())
+        # print(result)
+        print(len(result.my_results) + len(result.results) + len(result.chats) + len(result.users), f"Results found for query: {search}")
+        # print()
+        results.append(result)
+    total_results_count = 0
+    for result in results:
+        total_results_count+= len(result.my_results) + len(result.results) + len(result.chats) + len(result.users)
+    print(f"Total: {total_results_count}")
+
 # ---------------------------------------------------------------------------------------------------------
 search_channels()
