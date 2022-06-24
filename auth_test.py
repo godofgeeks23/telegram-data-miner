@@ -47,38 +47,38 @@ if not client.is_user_authorized():
 # ---------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------
-# # getting channel members info
+# getting channel members info
 
-# user_input_channel = input("enter entity(telegram URL or entity id):")
-# if user_input_channel.isdigit():
-#     entity = PeerChannel(int(user_input_channel))
-# else:
-#     entity = user_input_channel
-# my_channel = client.get_entity(entity)
-# offset = 0
-# limit = 100
-# all_participants = []
-# while True:
-#     participants = client(GetParticipantsRequest(
-#         my_channel, ChannelParticipantsSearch(''), offset, limit,
-#         hash=0
-#     ))
-#     if not participants.users:
-#         break
-#     all_participants.extend(participants.users)
-#     offset += len(participants.users)
-# all_user_details = []
-# for participant in all_participants:
-#     all_user_details.append(
-#         {"id": participant.id, "first_name": participant.first_name, "last_name": participant.last_name,
-#          "user": participant.username, "phone": participant.phone, "is_bot": participant.bot})
+user_input_channel = input("enter entity(telegram URL or entity id):")
+if user_input_channel.isdigit():
+    entity = PeerChannel(int(user_input_channel))
+else:
+    entity = user_input_channel
+my_channel = client.get_entity(entity)
+offset = 0
+limit = 100
+all_participants = []
+while True:
+    participants = client(GetParticipantsRequest(
+        my_channel, ChannelParticipantsSearch(''), offset, limit,
+        hash=0
+    ))
+    if not participants.users:
+        break
+    all_participants.extend(participants.users)
+    offset += len(participants.users)
+all_user_details = []
+for participant in all_participants:
+    all_user_details.append(
+        {"id": participant.id, "first_name": participant.first_name, "last_name": participant.last_name,
+         "user": participant.username, "phone": participant.phone, "is_bot": participant.bot})
 # with open('user_data.json', 'w') as outfile:
 #     json.dump(all_user_details, outfile)
-# # print(all_user_details)
+print(all_user_details)
 # ---------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------
-# Getting channel messages
+# # Getting channel messages
 
 user_input_channel = input("enter entity(telegram URL or entity id):")
 if user_input_channel.isdigit():
