@@ -124,7 +124,9 @@ if not client.is_user_authorized():
 # Searching channels
 def search_channels():
     results = []
-    search_keywords = ["tylenol"]
+    search_keywords = ["drugs"
+    ,"marijuana","cocaine","tylenol","Oxycodone","Ritalin","Adderall ","Oxycotine","Diazepam Valium","Xanax","Dilaudid","Hydrocodone ","Percocet ","MDMA ","Tramadol","Suboxone","Rohypnol","Tilidin","Concerta","Morphine","Opana","Oxynorm","Mandrax","Quaalude","Codeine","LortabWatson","Dilaudid ","Fentanyl","Stilnox ","viagra","Subutex","lyrica","vicodine5","seconal","Dexedrine","Morphine","Xanax","Diazepam","Methadone","Oxycodone","Heroin","Percocet","Subutex","Hydrocodone","Methadone","Lyrica","Adderall","Diazepam","Roxicodone","Rohypnol","Vicodin","Benzodiazepines","Clozapine","Colchicine","smuggle","smuggling","drugs smuggling","drugs trafficking","escort services","escorts","call girl","escorts india","darkweb","dark web","onion","onion sites","dark web links","malware","ransomware","carding","criminal","deep web","deepweb","onion links","malware mods","child porn","porn onion","dark web porn","child porn onion","guns","buy guns","dark web guns"
+    ]
     for search in search_keywords:
         result = client(functions.contacts.SearchRequest(
             q=search,
@@ -132,12 +134,20 @@ def search_channels():
         ))
         # print(result.stringify())
         # print(result)
-        print(len(result.my_results) + len(result.results) + len(result.chats) + len(result.users), f"Results found for query: {search}")
-        print()
+        for section in result.chats:
+            print(f"t.me/{section.username}")
+        for section in result.users:
+            print(f"t.me/{section.username}")
+        
+            # print()
+        # print(len(result.my_results) + len(result.results) + len(result.chats) + len(result.users), f"Results found for query: {search}")
+        # print()
+        # print()
         results.append(result)
     total_results_count = 0
     for result in results:
         total_results_count+= len(result.my_results) + len(result.results) + len(result.chats) + len(result.users)
+
     print(f"Total: {total_results_count}")
 
 # ---------------------------------------------------------------------------------------------------------
