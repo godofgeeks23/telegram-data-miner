@@ -67,7 +67,7 @@ def get_channel_msgs(channel_link):
 # ---------------------------------------------------------------------------------------------------------
 
 links = []
-with open("ch_search_list.txt") as file_in:
+with open("txts/ch_search_list.txt") as file_in:
     # file.read().splitlines()
     links = file_in.read().splitlines()
 
