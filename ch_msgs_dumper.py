@@ -48,17 +48,22 @@ if not client.is_user_authorized():
         client.sign_in(password=passwd)
 # ---------------------------------------------------------------------------------------------------------
 
-user_input_channel = "https://t.me/importantlink_shiva"
-if user_input_channel.isdigit():
-    entity = PeerChannel(int(user_input_channel))
-else:
-    entity = user_input_channel
-my_channel = client.get_entity(entity)
+
 
 # ---------------------------------------------------------------------------------------------------------
 # Get a channel's messages
 
-for message in client.iter_messages(my_channel):
-    # print(message.id, message.text)
-    print(message)
-    print()
+def get_channel_msgs(channel_link):
+
+    if channel_link.isdigit():
+        entity = PeerChannel(int(channel_link))
+    else:
+        entity = channel_link
+    my_channel = client.get_entity(entity)
+    for message in client.iter_messages(my_channel):
+        # print(message.id, message.text)
+        print(message)
+        print()
+# ---------------------------------------------------------------------------------------------------------
+
+get_channel_msgs("https://t.me/importantlink_shiva")
