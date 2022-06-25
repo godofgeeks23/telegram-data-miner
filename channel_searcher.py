@@ -63,11 +63,19 @@ def search_channels():
         ))
         # print(result.stringify())
         # print(result)
+        data_obtained = ""
         for section in result.chats:
             print(f"t.me/{section.username}")
+            # data_obtained += "\n" + f"t.me/{section.username}"
+            # with open('ch_search_list.txt', 'w') as f:
+            #     f.write(f"t.me/{section.username}")
         for section in result.users:
             print(f"t.me/{section.username}")
-
+            # data_obtained += "\n" + f"t.me/{section.username}"
+            # with open('ch_search_list.txt', 'a') as f:
+            #     f.write(f"t.me/{section.username}")
+        # with open('ch_search_list.txt', 'w') as f:
+            # f.write(data_obtained)
             # print()
         # print(len(result.my_results) + len(result.results) + len(result.chats) + len(result.users), f"Results found for query: {search}")
         # print()
