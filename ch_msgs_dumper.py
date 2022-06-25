@@ -66,4 +66,17 @@ def get_channel_msgs(channel_link):
         print()
 # ---------------------------------------------------------------------------------------------------------
 
-get_channel_msgs("https://t.me/importantlink_shiva")
+links = []
+with open("ch_search_list.txt") as file_in:
+    # file.read().splitlines()
+    links = file_in.read().splitlines()
+
+i = 1
+for link in links:
+    print("Reading channel: " + "https://" + link)
+    get_channel_msgs("https://" + link)
+    i = i-1
+    if(i<0): break
+
+
+# get_channel_msgs("https://t.me/importantlink_shiva")
