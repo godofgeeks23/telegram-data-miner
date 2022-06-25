@@ -63,18 +63,27 @@ for word in stemmed:
         tags.append(word)
 # print(stem_stoped)
 
-# freq = nltk.FreqDist(tags)
-# print(freq)
-# freq.plot(50, cumulative=False)
+# # freq = nltk.FreqDist(tags)
+# # print(freq)
+# # freq.plot(50, cumulative=False)
 
-noun_categories = ['NN', 'NNS', 'NNP', 'NNPS']
-pos_tagged_tags = nltk.pos_tag(tags)
-# print("\npos_tagged_words - ", pos_tagged_tags)
-noun_tags = [word for (word, pos) in pos_tagged_tags if(pos[:2] == 'NN' or pos[:2] == 'NNS' or pos[:2] == 'NNP' or pos[:2] == 'NNPS')]
-print("\nnouns - ", noun_tags)
-freq = nltk.FreqDist(noun_tags)
-# print(freq)
-freq.plot(50, cumulative=False)
+# noun_categories = ['NN', 'NNS', 'NNP', 'NNPS']
+# pos_tagged_tags = nltk.pos_tag(tags)
+# # print("\npos_tagged_words - ", pos_tagged_tags)
+# noun_tags = []
+# for temp in pos_tagged_tags:
+#     # print(temp[:2])
+
+#     # if(temp[:2] == 'NN' or temp[:2] == 'NNS' or temp[:2] == 'NNP' or temp[:2] == 'NNPS'):
+#         # noun_tags.append(temp)
+# # print(noun_tags)
+# # noun_tags = [pos for pos in pos_tagged_tags if(pos[:2] == 'NN' or pos[:2] == 'NNS' or pos[:2] == 'NNP' or pos[:2] == 'NNPS')]
+# # print(noun_tags)
+# # noun_tags = [word for (word, pos) in pos_tagged_tags if(pos[:2] == 'NN' or pos[:2] == 'NNS' or pos[:2] == 'NNP' or pos[:2] == 'NNPS')]
+# # print("\nnouns - ", noun_tags)
+# # freq = nltk.FreqDist(noun_tags)
+# # print(freq)
+# # freq.plot(50, cumulative=False)
 
 
 print("----------"*10)
