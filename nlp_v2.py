@@ -9,14 +9,21 @@ import re
 
 # nltk.download('punkt')
 
+def remove_items(test_list, item):
+     
+    # using filter() + __ne__ to perform the task
+    res = list(filter((item).__ne__, test_list))
+ 
+    return res
+
 text = ''
 with open("txts/msgdump2.txt") as file_in:
     text = file_in.read()
-
+text = text.lower()
 words = word_tokenize(text)
 # print("\nwords - ", words)
 
-stop_words = set(stopwords.words("english"))
+stop_words = (stopwords.words("english"))
 filtered_list = []
 for word in words:
     if word.casefold() not in stop_words:
@@ -29,6 +36,8 @@ filtered_list = list(filter(None, filtered_list))
 filtered_list = [x for x in filtered_list if not (x.isdigit() or x[0] == '-' and x[1:].isdigit())]
 filtered_list = [x for x in words if len(x) > 2]
 filtered_list = [x for x in filtered_list if x.isalpha()]
+for stopword in stop_words:
+    filtered_list = remove_items(filtered_list, stopword)
 print("\nfiltered_list - ", filtered_list)
 
 
