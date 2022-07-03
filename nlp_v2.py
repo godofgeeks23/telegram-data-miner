@@ -9,12 +9,14 @@ import re
 
 # nltk.download('punkt')
 
+
 def remove_items(test_list, item):
-     
+
     # using filter() + __ne__ to perform the task
     res = list(filter((item).__ne__, test_list))
- 
+
     return res
+
 
 text = ''
 with open("txts/msgdump2.txt") as file_in:
@@ -30,10 +32,12 @@ for word in words:
         filtered_list.append(word)
 
 filtered_list = ([re.sub('[^a-zA-Z0-9]+', '', _) for _ in filtered_list])
-filtered_list = [element for element in filtered_list if any(digit not in element for digit in "1234567890")]
+filtered_list = [element for element in filtered_list if any(
+    digit not in element for digit in "1234567890")]
 filtered_list = [x for x in filtered_list if not any(x1.isdigit() for x1 in x)]
 filtered_list = list(filter(None, filtered_list))
-filtered_list = [x for x in filtered_list if not (x.isdigit() or x[0] == '-' and x[1:].isdigit())]
+filtered_list = [x for x in filtered_list if not (
+    x.isdigit() or x[0] == '-' and x[1:].isdigit())]
 filtered_list = [x for x in words if len(x) > 2]
 filtered_list = [x for x in filtered_list if x.isalpha()]
 for stopword in stop_words:
