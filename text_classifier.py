@@ -1,3 +1,3 @@
+# text classification of text in various categories of cybercrime activities
 
-from sklearn.naive_bayes import MultinomialNB
-clf = MultinomialNB().fit(X_train_tfidf, twenty_train.target)
+
