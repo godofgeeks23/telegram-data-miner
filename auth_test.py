@@ -47,7 +47,7 @@ if not client.is_user_authorized():
 # ---------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------
-# getting channel members info
+# getting channel members information
 
 user_input_channel = input("enter entity(telegram URL or entity id):")
 if user_input_channel.isdigit():
